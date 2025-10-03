@@ -29,12 +29,15 @@ jobs:
       - name: Upload node_modules as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: node-modules
+          name: node-modules-${{ matrix.node-version }}
           path: node_modules
 
   run-tests:
     needs: prepare-repository
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 22.x]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -42,7 +45,7 @@ jobs:
       - name: Download node_modules artifact
         uses: actions/download-artifact@v4
         with:
-          name: node-modules
+          name: node-modules-${{ matrix.node-version }}
           path: node_modules
 
       - name: Set up Node.js
@@ -56,6 +59,9 @@ jobs:
   run-build:
     needs: prepare-repository
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 22.x]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -63,7 +69,7 @@ jobs:
       - name: Download node_modules artifact
         uses: actions/download-artifact@v4
         with:
-          name: node-modules
+          name: node-modules-${{ matrix.node-version }}
           path: node_modules
 
       - name: Set up Node.js
