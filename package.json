@@ -1,0 +1,23 @@
+{
+  "name": "artifact-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node build/index.js",
+    "dev": "npx ts-node src/index.ts",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@swc/jest": "^0.2.39",
+    "jest": "^30.2.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0"
+  }
+}
