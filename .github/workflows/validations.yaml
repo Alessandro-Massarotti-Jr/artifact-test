@@ -48,6 +48,9 @@ jobs:
           name: node-modules
           path: node_modules
 
+      - name: Change node_modules permissions
+        run: chmod -R +x node_modules/.bin
+
       - name: Run tests
         run: npm run test
 
@@ -68,6 +71,9 @@ jobs:
         with:
           name: node-modules
           path: node_modules
+
+      - name: Change node_modules permissions
+        run: chmod -R +x node_modules/.bin
 
       - name: Run Build
         run: npm run build
