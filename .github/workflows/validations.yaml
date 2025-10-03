@@ -28,6 +28,7 @@ jobs:
         with:
           name: node-modules
           path: node_modules
+          include-hidden-files: true
 
   run-tests:
     needs: prepare-repository
