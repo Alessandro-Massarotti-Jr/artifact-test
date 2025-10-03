@@ -81,8 +81,5 @@ jobs:
           name: node-modules-${{ matrix.node-version }}
           path: node_modules
 
-      - name: Change node_modules permissions
-        run: chmod -R +x node_modules/.bin
-
       - name: Run Build
         run: npm run build
