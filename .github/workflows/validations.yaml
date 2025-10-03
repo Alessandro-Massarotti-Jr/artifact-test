@@ -51,7 +51,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: ${{ matrix.node-version }}
+
+      - name: Show Dir
+        run: ls -la
 
       - name: Run tests
         run: npm run test
@@ -75,7 +78,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: 22.x
+          node-version: ${{ matrix.node-version }}
 
       - name: Run Build
         run: npm run build
